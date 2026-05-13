@@ -124,6 +124,10 @@ const EventCard = ({ event }) => {
         <img
           src={event.image}
           alt={event.title}
+          loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent group-hover:from-black/50 transition-all duration-500"></div>

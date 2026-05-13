@@ -51,7 +51,7 @@ const techTagStyle =
 
 const ProjectCard = ({ project, index }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  
+
   // Guard clause for rendering ProjectCard without a valid project prop
   if (!project) return null;
 
@@ -95,15 +95,18 @@ const ProjectCard = ({ project, index }) => {
         <img
           src={project.lowResImage || project.image}
           alt={project.title}
-          className={`absolute inset-0 w-full h-full object-cover blur-lg scale-105 transition-opacity duration-500 ${
-            isLoaded ? "opacity-0" : "opacity-100"
-          }`}
+          loading="lazy"
+          decoding="async"
+          className={`absolute inset-0 w-full h-full object-cover blur-lg scale-105 transition-opacity duration-500 ${isLoaded ? "opacity-0" : "opacity-100"
+            }`}
           aria-hidden="true"
         />
         <img
           src={project.image}
           alt={project.title}
           loading="lazy"
+          decoding="async"
+          sizes="(max-width: 768px) 100vw, 33vw"
           onLoad={() => setIsLoaded(true)}
           className="relative w-full h-full object-cover transition-transform duration-300"
         />

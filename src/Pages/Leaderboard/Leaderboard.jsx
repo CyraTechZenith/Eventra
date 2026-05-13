@@ -368,15 +368,14 @@ export default function LeaderBoard() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span
                             // UPDATED: Rank badges
-                            className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-medium ${
-                              rank === 1
+                            className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-medium ${rank === 1
                                 ? "bg-yellow-500 text-white"
                                 : rank === 2
-                                ? "bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-200"
-                                : rank === 3
-                                ? "bg-amber-800 text-white"
-                                : "bg-indigo-50 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
-                            }`}
+                                  ? "bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-200"
+                                  : rank === 3
+                                    ? "bg-amber-800 text-white"
+                                    : "bg-indigo-50 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
+                              }`}
                           >
                             {rank}
                           </span>
@@ -388,6 +387,9 @@ export default function LeaderBoard() {
                                 className="h-10 w-10 rounded-full border-2 border-indigo-200 dark:border-gray-600"
                                 src={c.avatar}
                                 alt={c.username}
+                                loading="lazy"
+                                decoding="async"
+                                fetchPriority="low"
                               />
                             </div>
                             <div className="ml-4">
@@ -437,11 +439,10 @@ export default function LeaderBoard() {
                     <button
                       key={i}
                       onClick={() => setCurrentPage(i + 1)}
-                      className={`px-3 py-1 text-sm rounded-lg border ${
-                        currentPage === i + 1
+                      className={`px-3 py-1 text-sm rounded-lg border ${currentPage === i + 1
                           ? "bg-indigo-500 text-white border-indigo-500"
                           : "border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
-                      }`}
+                        }`}
                     >
                       {i + 1}
                     </button>
